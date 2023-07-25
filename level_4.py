@@ -91,8 +91,6 @@ def solve_sub_multiply(idSP, carry, id, localState, subtree, impact, result):
 
     return res
 
-
-# Xử lí chính
 def solve_multiply(idSP, state, carry, subtree, impact, result):
     if len(state) > 10:
         return

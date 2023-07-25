@@ -1,0 +1,684 @@
+Data:  TO+TO=FOR
+Visual:
+   |T|O
++  |T|O
+= F|O|R
+(OOR, TTO, F are columns)
+First chars:  {'F', 'T'}
+========
+After init data:
+Start State:  {'T': -1, 'O': -1, 'F': -1, 'R': -1}
+Columns:  [['O', 'R'], ['T', 'O'], ['F']]
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+========
+--Solve
+idCol:  0
+State:  {'T': -1, 'O': -1, 'F': -1, 'R': -1}
+Carry:  0
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+----Solve column
+Carry:  0
+ID:  0
+Local state:  {'T': -1, 'O': -1, 'F': -1, 'R': -1}
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': -1}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 1}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 1}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  1
+Temp:  -1
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 2}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  2
+Temp:  -2
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 3}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 3}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  3
+Temp:  -3
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 4}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  4
+Temp:  -4
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 5}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 5}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  5
+Temp:  -5
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 6}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 6}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  6
+Temp:  -6
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 7}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 7}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  7
+Temp:  -7
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 8}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 8}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  8
+Temp:  -8
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 0, 'F': -1, 'R': 9}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 0, 'F': -1, 'R': 9}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  9
+Temp:  -9
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': -1}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 0}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 0}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  0
+Temp:  2
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  2
+Temp:  0
+Carry:  0
+--Solve
+idCol:  1
+State:  {'T': -1, 'O': 1, 'F': -1, 'R': 2}
+Carry:  0
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+----Solve column
+Carry:  0
+ID:  0
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 3, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 3, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 3, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  6
+lower:  1
+Temp:  5
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 4, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 4, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 4, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  8
+lower:  1
+Temp:  7
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 5, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 5, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 5, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  10
+lower:  1
+Temp:  -1
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 6, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 6, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 6, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  12
+lower:  1
+Temp:  1
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 7, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 7, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 7, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  14
+lower:  1
+Temp:  3
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 8, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 8, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 8, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  16
+lower:  1
+Temp:  5
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 9, 'O': 1, 'F': -1, 'R': 2}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 9, 'O': 1, 'F': -1, 'R': 2}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 9, 'O': 1, 'F': -1, 'R': 2}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  18
+lower:  1
+Temp:  7
+------
+----
+----
+State space:  {'-11-12'}
+--
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 3}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 3}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  3
+Temp:  -1
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 4}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  4
+Temp:  -2
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 5}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 5}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  5
+Temp:  -3
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 6}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 6}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  6
+Temp:  -4
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 7}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 7}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  7
+Temp:  -5
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 8}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 8}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  8
+Temp:  -6
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 1, 'F': -1, 'R': 9}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 1, 'F': -1, 'R': 9}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  9
+Temp:  -7
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': -1}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': 0}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 2, 'F': -1, 'R': 0}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  4
+lower:  0
+Temp:  4
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': 1}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 2, 'F': -1, 'R': 1}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  4
+lower:  1
+Temp:  3
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': 3}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 2, 'F': -1, 'R': 3}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  4
+lower:  3
+Temp:  1
+------
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['O', 'R']
+Assign:  {'T': -1, 'O': 2, 'F': -1, 'R': 4}
+Factor:  {'O': (2, 0), 'R': (0, 1)}
+Precarry:  0
+upper:  4
+lower:  4
+Temp:  0
+Carry:  0
+--Solve
+idCol:  1
+State:  {'T': -1, 'O': 2, 'F': -1, 'R': 4}
+Carry:  0
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+----Solve column
+Carry:  0
+ID:  0
+Local state:  {'T': -1, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 1, 'O': 2, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 1, 'O': 2, 'F': -1, 'R': 4}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  2
+lower:  2
+Temp:  0
+Carry:  0
+--Solve
+idCol:  2
+State:  {'T': 1, 'O': 2, 'F': -1, 'R': 4}
+Carry:  0
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+----Solve column
+Carry:  0
+ID:  0
+Local state:  {'T': 1, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 3, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 3, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  3
+Temp:  -3
+------
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 5, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 5, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  5
+Temp:  -5
+------
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 6, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 6, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  6
+Temp:  -6
+------
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 7, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 7, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  7
+Temp:  -7
+------
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 8, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 8, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  8
+Temp:  -8
+------
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 1, 'O': 2, 'F': 9, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 1, 'O': 2, 'F': 9, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  0
+upper:  0
+lower:  9
+Temp:  -9
+------
+----
+State space:  {'12-14'}
+--
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 3, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 3, 'O': 2, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 3, 'O': 2, 'F': -1, 'R': 4}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  6
+lower:  2
+Temp:  4
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 5, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 5, 'O': 2, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 5, 'O': 2, 'F': -1, 'R': 4}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  10
+lower:  2
+Temp:  -2
+------
+----
+----Solve column
+Carry:  0
+ID:  1
+Local state:  {'T': 6, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  0
+ID:  2
+Local state:  {'T': 6, 'O': 2, 'F': -1, 'R': 4}
+------Check assign
+Problem:  ['T', 'O']
+Assign:  {'T': 6, 'O': 2, 'F': -1, 'R': 4}
+Factor:  {'T': (2, 0), 'O': (0, 1)}
+Precarry:  0
+upper:  12
+lower:  2
+Temp:  0
+Carry:  1
+--Solve
+idCol:  2
+State:  {'T': 6, 'O': 2, 'F': -1, 'R': 4}
+Carry:  1
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+----Solve column
+Carry:  1
+ID:  0
+Local state:  {'T': 6, 'O': 2, 'F': -1, 'R': 4}
+----Solve column
+Carry:  1
+ID:  1
+Local state:  {'T': 6, 'O': 2, 'F': 1, 'R': 4}
+------Check assign
+Problem:  ['F']
+Assign:  {'T': 6, 'O': 2, 'F': 1, 'R': 4}
+Factor:  {'F': (0, 1)}
+Precarry:  1
+upper:  0
+lower:  1
+Temp:  0
+Carry:  0
+--Solve
+idCol:  3
+State:  {'T': 6, 'O': 2, 'F': 1, 'R': 4}
+Carry:  0
+Columns:  3
+Impact:  [{'O': (2, 0), 'R': (0, 1)}, {'T': (2, 0), 'O': (0, 1)}, {'F': (0, 1)}]
+Len columns:  3
+State space:  {'62-14'}
+--
+----
+State space:  {'-12-14'}
+--
+State space:  {'-1-1-1-1'}
+--
+========
+After solved:
+Solution:  {'T': 6, 'O': 2, 'F': 1, 'R': 4}
+Sorted_solution:  [('F', 1), ('O', 2), ('R', 4), ('T', 6)]
+-> 1246
+   |T|O                   |6|2
++  |T|O    ->          +  |6|2
+= F|O|R                = 1|2|4

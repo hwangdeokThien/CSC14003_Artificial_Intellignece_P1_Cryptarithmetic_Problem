@@ -2,7 +2,7 @@ from utility import *
 
 # Initialize data from input string
 def initialize_data(data):
-    start = {char: -1 for char in data if char.isalpha()}
+    init_state = {char: -1 for char in data if char.isalpha()} # {'F': -1, 'G': -1, ...}
     operators = ['+'] + [char for char in data if char in ('+', '-')]
 
     data = data.replace('+', ' ')
@@ -16,7 +16,7 @@ def initialize_data(data):
     max_len_operand = max(len(opr) for opr in operands)
     tmp = max(len(result), max_len_operand)
 
-    subtree = [[] for _ in range(tmp)]
+    columns = [[] for _ in range(tmp)]
     impact = [{} for _ in range(tmp)]
 
     for i in range(len(operands)):
@@ -27,49 +27,49 @@ def initialize_data(data):
 
             if not opr[j] in impact[id]:
                 if operators[i] == '+':
-                    pos = 1
-                    neg = 0
+                    upper = 1
+                    lower = 0
                 else:
-                    pos = 0
-                    neg = 1
+                    upper = 0
+                    lower = 1
 
-                subtree[id].append(opr[j])
-                impact[id].update({opr[j]: (pos, neg)})
+                columns[id].append(opr[j])
+                impact[id].update({opr[j]: (upper, lower)})
             else:
-                pos = impact[id][opr[j]][0]
-                neg = impact[id][opr[j]][1]
+                upper = impact[id][opr[j]][0]
+                lower = impact[id][opr[j]][1]
 
                 if operators[i] == '+':
-                    pos = pos + 1
+                    upper = upper + 1
                 else:
-                    neg = neg + 1
+                    lower = lower + 1
 
-                impact[id].update({opr[j]: (pos, neg)})
+                impact[id].update({opr[j]: (upper, lower)})
 
     for i in range(len(result)):
         char = result[len(result)-i-1]
 
-        if char not in subtree[i]:
-            subtree[i].append(char)
+        if char not in columns[i]:
+            columns[i].append(char)
             impact[i].update({char: (0, 1)})
         else:
-            pos = impact[i][char][0]
-            neg = impact[i][char][1] + 1
-            impact[i].update({char: (pos, neg)})
+            upper = impact[i][char][0]
+            lower = impact[i][char][1] + 1
+            impact[i].update({char: (upper, lower)})
     
-    return start, subtree, impact
+    return init_state, columns, impact
 
 # Check if the subproblem's assign is valid 
 # # If it is, return carry. Otherwise, None
 def check_assign(problem, assign, factor, precarry):
-    pos, neg = 0, 0
+    upper, lower = 0, 0
 
     for char in problem:
-        pos = pos + assign[char]*factor[char][0]
-        neg = neg + assign[char]*factor[char][1]
+        upper = upper + assign[char]*factor[char][0]
+        lower = lower + assign[char]*factor[char][1]
 
-    A = pos + precarry
-    B = neg
+    A = upper + precarry
+    B = lower
     
     if A < 0:
         return None
@@ -77,50 +77,53 @@ def check_assign(problem, assign, factor, precarry):
     temp = A % 10 - B % 10
 
     if (temp == 0):
-        return int(A/10) - int(B/10)
+        carry = int(A/10) - int(B/10)
+        return carry
 
     return None
 
-# solveSub[1]  0 1 2 3 4 5 six SP[2] SP[3] 
-def solve_sub(idSP, carry, id, localState, subtree, impact, first_chars):
-    if id == len(subtree[idSP]):
-        temp = check_assign(subtree[idSP], localState, impact[idSP], carry)
+# Depth-First Search
+def solve_col(id_col, carry, count, state, columns, impact, first_chars):
+    if count == len(columns[id_col]):
+        flag_carry = check_assign(columns[id_col], state, impact[id_col], carry)
 
-        if temp is not None:
-            res = solve(idSP+1, localState, temp, subtree, impact, first_chars)
+        if flag_carry is not None:
+            res = solve(id_col+1, state, flag_carry, columns, impact, first_chars)
 
             if res is not None:
                 return res
 
         return None
 
-    # subtree(set))
-    char = subtree[idSP][id]
+    char = columns[id_col][count]
     res = dict()
 
-    if localState[char] == -1:
+    if state[char] == -1:
         # If the character is in first_chars, start from 1 instead of 0
         start_val = 1 if is_first_chars(char, first_chars) else 0
 
         for val in range(start_val, 10):
-            if val not in localState.values():
-                localState[char] = val
+            if val not in state.values():
+                state[char] = val
 
-                res = solve_sub(idSP, carry, id+1, localState, subtree, impact, first_chars)
+                res = solve_col(id_col, carry, count+1, state, columns, impact, first_chars)
                 if res != None:
                     return res
 
-                localState[char] = -1
+                state[char] = -1
     else:
-        res = solve_sub(idSP, carry, id+1, localState, subtree, impact, first_chars)
-
+        res = solve_col(id_col, carry, count+1, state, columns, impact, first_chars)
     return res
 
-def solve(idSP, state, carry, subtree, impact, first_chars):
+# Backtracking
+def solve(id_col, state, carry, columns, impact, first_chars):
+    # Number assign only 0-9
     if len(state) > 10:
         return None
-
-    if idSP == len(subtree):
+        
+    # Check if number of solve columns equal to length of columns or not 
+    # Stop condition
+    if id_col == len(columns):
         if carry == 0:
             return state
         else:
@@ -132,7 +135,6 @@ def solve(idSP, state, carry, subtree, impact, first_chars):
     if str_state in state_space:
         return None
 
-    res = solve_sub(idSP, carry, 0, state, subtree, impact, first_chars)
+    res = solve_col(id_col, carry, 0, state, columns, impact, first_chars)
     state_space.add(str_state)
-
     return res
