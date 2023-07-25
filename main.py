@@ -30,10 +30,11 @@ if __name__ == '__main__':
         print("Sorted solution: ", sorted_solution)
         for item in sorted_solution:
             output += str(item[1])
-        print(f"Time execute: {end_time-start_time:.5f} s")
-        print(f"Memory use: {peak/1024**2:.5f} mb")
         write_file("output.txt", output)
     else:
         print("NO SOLUTION")
+
+    print(f"Time execute: {end_time-start_time:.5f} s")
+    print(f"Memory use: {peak/1024**2:.5f} mb")
     
 
