@@ -59,8 +59,8 @@ def initialize_data(data):
     
     return init_state, columns, impact
 
-# Check if the subproblem's assign is valid 
-# # If it is, return carry. Otherwise, None
+# Check if the columns's assign is true 
+# If it is, return carry. Otherwise, None
 def check_assign(problem, assign, factor, precarry):
     upper, lower = 0, 0
 

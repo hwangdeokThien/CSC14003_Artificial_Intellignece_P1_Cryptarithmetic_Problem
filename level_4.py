@@ -3,6 +3,7 @@ from utility import *
 # Initialize data from input string
 def initialize_data_multiply(data):
     start = {char: -1 for char in data if char.isalpha()}
+    
     data = data.replace('*', ' ')
     temp = data.split('=')
     operands = temp[0].split(' ')
@@ -13,7 +14,7 @@ def initialize_data_multiply(data):
     result = temp[1]
     result = result[::-1]
     
-    subtree = [[] for _ in range(len(result))]
+    columns = [[] for _ in range(len(result))]
     impact = [{} for _ in range(len(result))]
 
     for i in range(0, len(operands[0])):
@@ -22,10 +23,10 @@ def initialize_data_multiply(data):
             char1 = operands[0][i]
             char2 = operands[1][j]
 
-            if char1 not in subtree[id]:
-                subtree[id].append(char1)
-            if char2 not in subtree[id]:
-                subtree[id].append(char2)
+            if char1 not in columns[id]:
+                columns[id].append(char1)
+            if char2 not in columns[id]:
+                columns[id].append(char2)
 
             if char1 not in impact[id]:
                 impact[id].update({char1: {char2: 1}})
@@ -37,12 +38,12 @@ def initialize_data_multiply(data):
                     impact[id][char1].update({char2: temp})
 
     for i in range(0, len(result)):
-        if result[i] not in subtree[i]:
-            subtree[i].append(result[i])
+        if result[i] not in columns[i]:
+            columns[i].append(result[i])
 
-    return start, subtree, impact, result
+    return start, columns, impact, result
 
-def check_assign_multiply(problem, assign, subRes, factor, preCarry):
+def check_assign_multiply(problem, assign, subres, factor, precarry):
     pos = 0
 
     for char1 in problem:
@@ -53,49 +54,48 @@ def check_assign_multiply(problem, assign, subRes, factor, preCarry):
 
                 pos += assign[char1]*assign[char2]*imp
 
-    pos += preCarry
+    pos += precarry
 
-    if pos % 10 == assign[subRes]:
+    if pos % 10 == assign[subres]:
         return int(pos/10)
 
     return None
 
-def solve_sub_multiply(idSP, carry, id, localState, subtree, impact, result):
-    if id == len(subtree[idSP]):
-        temp = check_assign_multiply(subtree[idSP], localState, result[idSP], impact[idSP], carry)
+def solve_sub_multiply(id_col, carry, count, state, columns, impact, result):
+    if count == len(columns[id_col]):
+        flag_carry = check_assign_multiply(columns[id_col], state, result[id_col], impact[id_col], carry)
 
-        if temp != None:
-            res = solve_multiply(idSP+1, localState, temp, subtree, impact, result)
+        if flag_carry != None:
+            res = solve_multiply(id_col+1, state, flag_carry, columns, impact, result)
 
             if res != None:
                 return res
 
         return None
 
-    # subtree(set))
-    char = subtree[idSP][id]
+    char = columns[id_col][count]
     res = dict()
 
-    if localState[char] == -1:
+    if state[char] == -1:
         for val in range(0, 10):
-            if val not in localState.values():
-                localState[char] = val
+            if val not in state.values():
+                state[char] = val
 
-                res = solve_sub_multiply(idSP, carry, id+1, localState, subtree, impact, result)
+                res = solve_sub_multiply(id_col, carry, count+1, state, columns, impact, result)
                 if res != None:
                     return res
 
-                localState[char] = -1
+                state[char] = -1
     else:
-        res = solve_sub_multiply(idSP, carry, id+1, localState, subtree, impact, result)
+        res = solve_sub_multiply(id_col, carry, count+1, state, columns, impact, result)
 
     return res
 
-def solve_multiply(idSP, state, carry, subtree, impact, result):
+def solve_multiply(id_col, state, carry, columns, impact, result):
     if len(state) > 10:
         return
 
-    if idSP == len(subtree):
+    if id_col == len(columns):
         if carry == 0:
             return state
         else:
@@ -107,7 +107,7 @@ def solve_multiply(idSP, state, carry, subtree, impact, result):
     if str_state in state_space:
         return None
 
-    res = solve_sub_multiply(idSP, carry, 0, state, subtree, impact, result)
+    res = solve_sub_multiply(id_col, carry, 0, state, columns, impact, result)
     state_space.add(str_state)
 
     return res
