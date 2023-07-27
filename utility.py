@@ -41,12 +41,12 @@ def write_file(filename, result):
     except:
         return False
     
-
+# Get the first chars of each words
 def get_first_chars(data):
-    # Split the expression by '+' and '-' to extract individual words
     words = data.replace('=', '+').split('+')
     first_chars = set(word[0] for word in words)
     return first_chars
 
+# Check if a char first or not
 def is_first_chars(char, first_chars):
     return char in first_chars

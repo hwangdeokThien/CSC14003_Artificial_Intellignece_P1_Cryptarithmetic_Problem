@@ -59,8 +59,7 @@ def initialize_data(data):
     
     return init_state, columns, impact
 
-# Check if the columns's assign is true 
-# If it is, return carry. Otherwise, None
+# Check if the columns's assign is true. If it is, return carry. Otherwise, None
 def check_assign(problem, assign, factor, precarry):
     upper, lower = 0, 0
 
@@ -82,6 +81,7 @@ def check_assign(problem, assign, factor, precarry):
 
     return None
 
+# CSP in each columns of problem
 def solve_col(id_col, carry, count, state, columns, impact, first_chars):
     if count == len(columns[id_col]):
         flag_carry = check_assign(columns[id_col], state, impact[id_col], carry)
@@ -114,13 +114,13 @@ def solve_col(id_col, carry, count, state, columns, impact, first_chars):
         res = solve_col(id_col, carry, count+1, state, columns, impact, first_chars)
     return res
 
+# Main solve
 def solve(id_col, state, carry, columns, impact, first_chars):
-    # Number assign only 0-9
+    # Number assign only from 0 to 9
     if len(state) > 10:
         return None
         
-    # Check if number of solve columns equal to length of columns or not 
-    # Stop condition
+    # Check if number of solve columns equal to length of columns or not (Stop condition)
     if id_col == len(columns):
         if carry == 0:
             return state

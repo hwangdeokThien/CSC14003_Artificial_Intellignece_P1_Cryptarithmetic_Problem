@@ -43,6 +43,7 @@ def initialize_data_multiply(data):
 
     return start, columns, impact, result
 
+# Check if the columns's assign is true. If it is, return carry. Otherwise, None
 def check_assign_multiply(problem, assign, subres, factor, precarry):
     pos = 0
 
@@ -61,7 +62,8 @@ def check_assign_multiply(problem, assign, subres, factor, precarry):
 
     return None
 
-def solve_sub_multiply(id_col, carry, count, state, columns, impact, result):
+# CSP in each columns of problem
+def solve_col_multiply(id_col, carry, count, state, columns, impact, result):
     if count == len(columns[id_col]):
         flag_carry = check_assign_multiply(columns[id_col], state, result[id_col], impact[id_col], carry)
 
@@ -81,16 +83,17 @@ def solve_sub_multiply(id_col, carry, count, state, columns, impact, result):
             if val not in state.values():
                 state[char] = val
 
-                res = solve_sub_multiply(id_col, carry, count+1, state, columns, impact, result)
+                res = solve_col_multiply(id_col, carry, count+1, state, columns, impact, result)
                 if res != None:
                     return res
 
                 state[char] = -1
     else:
-        res = solve_sub_multiply(id_col, carry, count+1, state, columns, impact, result)
+        res = solve_col_multiply(id_col, carry, count+1, state, columns, impact, result)
 
     return res
 
+# Main solve
 def solve_multiply(id_col, state, carry, columns, impact, result):
     if len(state) > 10:
         return
@@ -107,7 +110,7 @@ def solve_multiply(id_col, state, carry, columns, impact, result):
     if str_state in state_space:
         return None
 
-    res = solve_sub_multiply(id_col, carry, 0, state, columns, impact, result)
+    res = solve_col_multiply(id_col, carry, 0, state, columns, impact, result)
     state_space.add(str_state)
 
     return res
