@@ -2,7 +2,7 @@
 def to_string(data_dict):
     return "".join(str(value) for value in data_dict.values())
 
-# Process input data from file and handle parentheses and sign changes
+# Process input data from file, handle parentheses and change signs
 def read_file(filename):
     f = open(filename)
     data = f.read()
@@ -32,6 +32,7 @@ def read_file(filename):
 
     return result
 
+# Write the result to output file
 def write_file(filename, result):
     try:
         with open(filename, "w") as f:
@@ -40,12 +41,11 @@ def write_file(filename, result):
     except:
         return False
     
+
 def get_first_chars(data):
     # Split the expression by '+' and '-' to extract individual words
     words = data.replace('=', '+').split('+')
-    
     first_chars = set(word[0] for word in words)
-
     return first_chars
 
 def is_first_chars(char, first_chars):

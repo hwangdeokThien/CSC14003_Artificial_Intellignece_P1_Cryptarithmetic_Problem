@@ -82,7 +82,6 @@ def check_assign(problem, assign, factor, precarry):
 
     return None
 
-# Depth-First Search
 def solve_col(id_col, carry, count, state, columns, impact, first_chars):
     if count == len(columns[id_col]):
         flag_carry = check_assign(columns[id_col], state, impact[id_col], carry)
@@ -115,7 +114,6 @@ def solve_col(id_col, carry, count, state, columns, impact, first_chars):
         res = solve_col(id_col, carry, count+1, state, columns, impact, first_chars)
     return res
 
-# Backtracking
 def solve(id_col, state, carry, columns, impact, first_chars):
     # Number assign only 0-9
     if len(state) > 10:
